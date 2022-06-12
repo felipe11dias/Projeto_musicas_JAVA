@@ -58,7 +58,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 							  usuarioRepository.delete(usuario);
 							  return usuario;
 						  })
-						  .orElseThrow( () -> new ResponseStatusException(HttpStatus.OK, "Não foi possivel encontrar o usuário."));
+						  .orElseThrow( () -> new ResponseStatusException(HttpStatus.NO_CONTENT, "Não foi possivel encontrar o usuário."));
 	}
 
 }

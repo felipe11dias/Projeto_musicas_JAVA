@@ -1,8 +1,11 @@
 package br.comp.unifor.ProjetoMusicas.controller;
 
+import static org.springframework.http.HttpStatus.NO_CONTENT;
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,5 +57,11 @@ public class PlaylistController {
 	@PutMapping("/remover/{id}/musicas/{idMusica}")
 	public Playlist removerMusica(@PathVariable Integer id, @PathVariable Integer idMusica) {
 		return playlistService.removerMusica(id, idMusica);
+	}
+	
+	@DeleteMapping("/{id}")
+	@ResponseStatus(NO_CONTENT)
+	public void deletar(@PathVariable Integer id) {
+		playlistService.deletar(id);
 	}
 }
